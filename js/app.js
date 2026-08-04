@@ -1,0 +1,306 @@
+// =====================
+// FECHA DE ACCESO ❤️
+// =====================
+
+
+const unlockBtn = document.getElementById("unlockBtn");
+
+const dateInput = document.getElementById("dateInput");
+
+const lockScreen = document.getElementById("lockScreen");
+
+const errorMessage = document.getElementById("errorMessage");
+
+
+
+unlockBtn.addEventListener("click",()=>{
+
+
+    if(dateInput.value === "2026-02-02"){
+
+
+        lockScreen.style.opacity="0";
+
+
+        setTimeout(()=>{
+
+
+            lockScreen.style.display="none";
+
+
+        },500);
+
+
+
+    }else{
+
+
+        errorMessage.innerHTML=
+        "Esa no es nuestra fecha especial ❤️";
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================
+// MUSICA
+// =====================
+
+
+const music=document.getElementById("music");
+
+const playBtn=document.getElementById("playBtn");
+
+
+const emergencyBtn=document.getElementById("emergencyBtn");
+
+const emergencyAudio=document.getElementById("emergencyAudio");
+
+
+let playing=false;
+
+
+
+
+
+
+
+function detenerTodos(audioActual){
+
+
+
+    [music,emergencyAudio].forEach(audio=>{
+
+
+        if(audio !== audioActual){
+
+
+            audio.pause();
+
+            audio.currentTime=0;
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+playBtn.addEventListener("click",()=>{
+
+
+    if(!playing){
+
+
+        detenerTodos(music);
+
+
+        music.play();
+
+
+        playBtn.innerHTML="⏸ Pausar canción";
+
+
+        playing=true;
+
+
+
+    }else{
+
+
+        music.pause();
+
+        music.currentTime=0;
+
+
+        playBtn.innerHTML="▶ Reproducir canción";
+
+
+        playing=false;
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+emergencyBtn.addEventListener("click",()=>{
+
+
+    detenerTodos(emergencyAudio);
+
+
+    emergencyAudio.play();
+
+
+    emergencyBtn.innerHTML=
+    "❤️ Escuchando mensaje";
+
+
+});
+
+
+
+
+
+
+
+
+emergencyAudio.addEventListener("ended",()=>{
+
+
+    emergencyBtn.innerHTML=
+    "🥺 Necesito un abrazo ❤️";
+
+
+});
+
+
+
+
+
+
+
+
+// =====================
+// CORAZONES FLOTANDO ❤️
+// =====================
+
+
+
+function crearCorazon(){
+
+
+    const heart=document.createElement("div");
+
+
+    heart.innerHTML="❤️";
+
+
+    heart.style.position="fixed";
+
+
+    heart.style.bottom="-30px";
+
+
+    heart.style.left=Math.random()*100+"%";
+
+
+    heart.style.fontSize=
+    Math.random()*25+20+"px";
+
+
+    heart.style.opacity=
+    Math.random()*0.5+0.5;
+
+
+    heart.style.pointerEvents="none";
+
+
+    heart.style.zIndex="10000";
+
+
+    heart.style.animation=
+    "subir 10s linear forwards";
+
+
+
+    document.body.appendChild(heart);
+
+
+
+    setTimeout(()=>{
+
+
+        heart.remove();
+
+
+    },10000);
+
+
+
+}
+
+
+
+
+
+setInterval(crearCorazon,600);
+
+
+
+
+
+
+
+
+// ANIMACION CORAZONES
+
+
+const style=document.createElement("style");
+
+
+style.innerHTML=`
+
+@keyframes subir{
+
+
+from{
+
+
+transform:translateY(0) rotate(0deg);
+
+
+opacity:1;
+
+
+}
+
+
+
+to{
+
+
+transform:translateY(-110vh) rotate(360deg);
+
+
+opacity:0;
+
+
+}
+
+
+
+}
+
+`;
+
+
+
+document.head.appendChild(style);
