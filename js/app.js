@@ -52,8 +52,10 @@ unlockBtn.addEventListener("click",()=>{
 
 
 
+
+
 // =====================
-// MUSICA
+// MUSICA ❤️
 // =====================
 
 
@@ -62,12 +64,22 @@ const music=document.getElementById("music");
 const playBtn=document.getElementById("playBtn");
 
 
+// SEGUNDA MUSICA
+
+const music2=document.getElementById("music2");
+
+const playBtn2=document.getElementById("playBtn2");
+
+
 const emergencyBtn=document.getElementById("emergencyBtn");
 
 const emergencyAudio=document.getElementById("emergencyAudio");
 
 
 let playing=false;
+
+let playing2=false;
+
 
 
 
@@ -78,8 +90,7 @@ let playing=false;
 function detenerTodos(audioActual){
 
 
-
-    [music,emergencyAudio].forEach(audio=>{
+    [music,music2,emergencyAudio].forEach(audio=>{
 
 
         if(audio !== audioActual){
@@ -106,6 +117,11 @@ function detenerTodos(audioActual){
 
 
 
+// =====================
+// PRIMERA CANCION
+// =====================
+
+
 playBtn.addEventListener("click",()=>{
 
 
@@ -122,6 +138,13 @@ playBtn.addEventListener("click",()=>{
 
 
         playing=true;
+
+
+        // Reiniciar estado de la segunda canción
+
+        playing2=false;
+
+        playBtn2.innerHTML="▶ Reproducir otra canción";
 
 
 
@@ -150,6 +173,88 @@ playBtn.addEventListener("click",()=>{
 
 
 
+
+
+// =====================
+// SEGUNDA CANCION
+// =====================
+
+
+playBtn2.addEventListener("click",()=>{
+
+
+    if(!playing2){
+
+
+        detenerTodos(music2);
+
+
+        music2.play();
+
+
+        playBtn2.innerHTML="⏸ Pausar canción";
+
+
+        playing2=true;
+
+
+        // Reiniciar estado de la primera canción
+
+        playing=false;
+
+        playBtn.innerHTML="▶ Reproducir canción";
+
+
+
+    }else{
+
+
+        music2.pause();
+
+        music2.currentTime=0;
+
+
+        playBtn2.innerHTML="▶ Reproducir otra canción";
+
+
+        playing2=false;
+
+
+    }
+
+
+});
+
+
+
+
+
+// Cuando termina la segunda canción
+
+music2.addEventListener("ended",()=>{
+
+
+    playBtn2.innerHTML="▶ Reproducir otra canción";
+
+
+    playing2=false;
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================
+// BOTON DE EMERGENCIA ❤️
+// =====================
+
+
 emergencyBtn.addEventListener("click",()=>{
 
 
@@ -163,7 +268,20 @@ emergencyBtn.addEventListener("click",()=>{
     "❤️ Escuchando mensaje";
 
 
+    // Reiniciar estados de las canciones
+
+    playing=false;
+
+    playing2=false;
+
+
+    playBtn.innerHTML="▶ Reproducir canción";
+
+    playBtn2.innerHTML="▶ Reproducir otra canción";
+
+
 });
+
 
 
 
@@ -188,10 +306,10 @@ emergencyAudio.addEventListener("ended",()=>{
 
 
 
+
 // =====================
 // CORAZONES FLOTANDO ❤️
 // =====================
-
 
 
 function crearCorazon(){
@@ -244,8 +362,11 @@ function crearCorazon(){
     },10000);
 
 
-
 }
+
+
+
+
 
 
 
@@ -260,7 +381,10 @@ setInterval(crearCorazon,600);
 
 
 
+
+// =====================
 // ANIMACION CORAZONES
+// =====================
 
 
 const style=document.createElement("style");
