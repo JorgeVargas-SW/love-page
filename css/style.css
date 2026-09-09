@@ -39,6 +39,10 @@ body{
 
     justify-content:center;
 
+    flex-direction:column;
+
+    align-items:center;
+
 }
 
 
@@ -72,6 +76,13 @@ body{
 }
 
 
+/* Separación entre las secciones */
+
+.card + .card{
+
+    margin-top:30px;
+
+}
 
 
 
@@ -94,9 +105,7 @@ body{
 
     height:100vh;
 
-
     background:rgba(0,0,0,0.88);
-
 
     display:flex;
 
@@ -104,15 +113,11 @@ body{
 
     align-items:center;
 
-
     z-index:9999;
-
 
     backdrop-filter:blur(12px);
 
-
 }
-
 
 
 
@@ -120,36 +125,26 @@ body{
 
 .lock-card{
 
-
     width:90%;
 
     max-width:400px;
 
-
     padding:35px;
-
 
     background:rgba(255,255,255,.08);
 
-
     border-radius:25px;
-
 
     text-align:center;
 
-
     color:white;
 
-
     border:1px solid rgba(255,255,255,.15);
-
 
     box-shadow:
     0 15px 40px rgba(0,0,0,.8);
 
-
     animation:aparecer 1s ease;
-
 
 }
 
@@ -157,15 +152,11 @@ body{
 
 
 
-
 .lock-heart{
-
 
     font-size:60px;
 
-
     animation:latido 1.5s infinite;
-
 
 }
 
@@ -201,80 +192,64 @@ body{
 
 
 
-
 /* CALENDARIO */
+
 
 .lock-card input{
 
-
     margin-top:20px;
-
 
     width:220px;
 
-
     padding:12px 18px;
-
 
     border-radius:30px;
 
-
     border:1px solid rgba(255,255,255,0.3);
-
 
     background:rgba(255,255,255,0.12);
 
-
     color:white;
-
 
     text-align:center;
 
-
     font-size:15px;
-
 
     outline:none;
 
-
     cursor:pointer;
-
 
     backdrop-filter:blur(10px);
 
-
 }
+
+
 
 
 
 .lock-card input::-webkit-calendar-picker-indicator{
 
-
     filter:invert(1);
-
 
     cursor:pointer;
 
-
 }
+
+
 
 
 
 .lock-card input:hover{
 
-
     background:rgba(255,255,255,0.22);
 
-
 }
-
 
 
 
 
 
 #errorMessage{
-
 
     color:#ffaaaa;
 
@@ -286,37 +261,24 @@ body{
 
 
 
-
-
-
-
 /* FOTO */
 
 
 .photo{
 
-
     width:100%;
-
 
     height:420px;
 
-
     object-fit:cover;
-
 
     border-radius:20px;
 
-
     box-shadow:0 0 25px rgba(255,255,255,.18);
-
 
     animation:zoom 10s infinite alternate;
 
-
 }
-
-
 
 
 
@@ -327,19 +289,13 @@ body{
 
 h1{
 
-
     margin-top:25px;
-
 
     font-size:28px;
 
-
     font-weight:500;
 
-
 }
-
-
 
 
 
@@ -350,36 +306,27 @@ h1{
 
 .message{
 
-
     margin-top:25px;
-
 
     text-align:left;
 
-
     color:#eee;
-
 
     line-height:1.7;
 
-
     font-size:17px;
 
-
 }
+
+
 
 
 
 .message p{
 
-
     margin-bottom:22px;
 
-
 }
-
-
-
 
 
 
@@ -390,50 +337,54 @@ h1{
 
 button{
 
-
     margin-top:20px;
-
 
     padding:14px 30px;
 
-
     border-radius:50px;
-
 
     border:1px solid rgba(255,255,255,.3);
 
-
     background:rgba(255,255,255,.12);
-
 
     color:white;
 
-
     font-size:16px;
-
 
     cursor:pointer;
 
-
     transition:.3s;
 
-
 }
+
+
 
 
 
 button:hover{
 
-
     transform:scale(1.05);
 
-
     background:rgba(255,255,255,.25);
-
 
 }
 
 
+
+
+
+/* ==========================
+   SEGUNDA SECCIÓN
+========================== */
+
+
+.second-section{
+
+    max-width:600px;
+
+    width:100%;
+
+}
 
 
 
@@ -444,21 +395,21 @@ button:hover{
 
 .emergency-section{
 
+    width:100%;
+
+    max-width:600px;
 
     margin-top:40px;
 
-
     padding:25px;
-
 
     border-radius:20px;
 
-
     background:rgba(255,255,255,.05);
-
 
     border:1px solid rgba(255,255,255,.15);
 
+    text-align:center;
 
 }
 
@@ -467,15 +418,11 @@ button:hover{
 
 .emergency-text{
 
-
     color:#ccc;
-
 
     line-height:1.6;
 
-
     font-style:italic;
-
 
 }
 
@@ -483,19 +430,13 @@ button:hover{
 
 
 
-
-
 .heart{
-
 
     margin-top:25px;
 
-
     font-size:40px;
 
-
     animation:latido 1.5s infinite;
-
 
 }
 
@@ -505,16 +446,11 @@ button:hover{
 
 .footer{
 
-
     margin-top:20px;
-
 
     color:#ccc;
 
-
 }
-
-
 
 
 
@@ -525,54 +461,41 @@ button:hover{
 
 @keyframes aparecer{
 
+    from{
 
-from{
+        opacity:0;
 
+        transform:translateY(40px);
 
-opacity:0;
+    }
 
+    to{
 
-transform:translateY(40px);
+        opacity:1;
 
+        transform:translateY(0);
 
-}
-
-
-to{
-
-
-opacity:1;
-
-
-transform:translateY(0);
-
+    }
 
 }
 
-
-}
 
 
 
 
 @keyframes zoom{
 
+    from{
 
-from{
+        transform:scale(1);
 
-transform:scale(1);
+    }
 
-}
+    to{
 
+        transform:scale(1.05);
 
-to{
-
-
-transform:scale(1.05);
-
-
-}
-
+    }
 
 }
 
@@ -582,34 +505,25 @@ transform:scale(1.05);
 
 @keyframes latido{
 
+    0%{
 
-0%{
+        transform:scale(1);
 
-transform:scale(1);
+    }
 
-}
+    50%{
 
+        transform:scale(1.2);
 
-50%{
+    }
 
+    100%{
 
-transform:scale(1.2);
+        transform:scale(1);
 
-
-}
-
-
-100%{
-
-
-transform:scale(1);
-
+    }
 
 }
-
-
-}
-
 
 
 
@@ -617,44 +531,34 @@ transform:scale(1);
 
 @media(max-width:600px){
 
+    .card{
 
-.card{
+        padding:20px;
 
-
-padding:20px;
-
-
-}
+    }
 
 
 
-.photo{
+    .photo{
 
+        height:330px;
 
-height:330px;
-
-
-}
-
-
-
-.lock-card{
-
-
-padding:30px 20px;
-
-
-}
+    }
 
 
 
-.message{
+    .lock-card{
+
+        padding:30px 20px;
+
+    }
 
 
-font-size:15px;
 
+    .message{
 
-}
+        font-size:15px;
 
+    }
 
 }
